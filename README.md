@@ -1,12 +1,20 @@
 # EasyMVVM
 
-EasyMVVM is a package created to save time in the app development under the MVVM architecture.
+EasyMVVM is a package created to save time in the app development under the MVVM architecture with SwiftUI.
 
 ## Features
+
+### Version 1.0.2
+
+- [x] Added enableScroll() extension to View
+- [x] Added hideKeyboard() extension to View
+
+### Version 1.0.0
 
 - [x] EasyViewModel class with predefined structure for alert dialogs, loading state and an API completion handling
 - [x] Loader modifier for SwiftUI
 - [x] Alert modifier for SwiftUI
+
 
 ## Usage
 

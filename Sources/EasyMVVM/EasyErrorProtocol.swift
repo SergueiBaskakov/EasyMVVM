@@ -8,5 +8,7 @@
 import Foundation
 
 public protocol EasyErrorProtocol: Error, Codable {
+    
     func getErrorMessage() -> String
+    
 }

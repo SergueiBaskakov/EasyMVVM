@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct EasyAlert: ViewModifier {
+    
     @ObservedObject var viewModel: EasyViewModel
     
     func body(content: Content) -> some View {
@@ -26,6 +27,7 @@ struct EasyAlert: ViewModifier {
                 }
             }
     }
+    
 }
 
 public extension View {

@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 public protocol EasyViewModelProtocol: ObservableObject {
+    
     var alertTitle: String { get set }
     var alertMessage: String { get set }
     var alertLeftButtonText: String { get set }
@@ -21,4 +22,5 @@ public protocol EasyViewModelProtocol: ObservableObject {
     func showAlertDialog(title: String, message: String, leftButtonText: String, rightButtonText: String, leftButtonAction: @escaping () -> Void, rightButtonAction: @escaping () -> Void) -> Void
     
     func handleCompletion<T: EasyErrorProtocol>(completion: Subscribers.Completion<Error>, errorType: T.Type, defaultErrorMessage: String, title: String, leftButtonText: String, rightButtonText: String, leftButtonAction: @escaping () -> Void, rightButtonAction: @escaping () -> Void) -> Void
+    
 }

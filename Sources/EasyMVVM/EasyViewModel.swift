@@ -9,6 +9,7 @@ import Foundation
 import Combine
 
 open class EasyViewModel: EasyViewModelProtocol {
+    
     public var alertTitle = ""
     public var alertMessage = ""
     public var alertLeftButtonText = ""
