@@ -10,62 +10,68 @@ EasyMVVM is a package created to save time in the app development under the MVVM
 
 ## Usage
 
-import EasyMVVM
-...
-
-struct MyEasyError: EasyErrorProtocol {
+    import EasyMVVM
     ...
 
-    func getErrorMessage() -> String {
-        return myMessage
-    }
-    
-    ...
-}
+Define an Error struct
 
-class MyEasyViewModel: EasyViewModel {
-    ...
-        
-    func myFunction() {
+    struct MyEasyError: EasyErrorProtocol {
         ...
-        // Change state to loading
-        self.isLoading = true
-        ...
-        
-        apiCall()
-        .sink { completion in
-            ...
-            // Handle completion
-            self.handleCompletion(completion: completion, errorType: MyEasyError.self, defaultErrorMessage: "My default error message", rightButtonText: "Ok") 
-            ...
-            // Change state to no loading
-            self.isLoading = false
-            ...
-        } receiveValue: { response in
-            ...
-            // Show alert dialog
-            self.showAlertDialog(message: "My message", rightButtonText: "Ok")
-            ...
+
+        func getErrorMessage() -> String {
+            return myMessage
         }
-        .store(in: &subscriptions)
-    }
-    
-    ...
-}
-
-struct MyView: View {
-    ...
-    @StateObject var myEasyViewModel: EasyViewModel = MyEasyViewModel()
-    ...
-    
-    var body: some View {
+        
         ...
-        someView()
-            // Adding a loader modifier
-            .loader(viewModel: myEasyViewModel)
-            // Adding an alert modifier
-            .alert(viewModel: myEasyViewModel)
     }
-}
+    
+Define a ViewModel class
+
+    class MyEasyViewModel: EasyViewModel {
+        ...
+            
+        func myFunction() {
+            ...
+            // Change state to loading
+            self.isLoading = true
+            ...
+            
+            apiCall()
+            .sink { completion in
+                ...
+                // Handle completion
+                self.handleCompletion(completion: completion, errorType: MyEasyError.self, defaultErrorMessage: "My default error message", rightButtonText: "Ok") 
+                ...
+                // Change state to no loading
+                self.isLoading = false
+                ...
+            } receiveValue: { response in
+                ...
+                // Show alert dialog
+                self.showAlertDialog(message: "My message", rightButtonText: "Ok")
+                ...
+            }
+            .store(in: &subscriptions)
+        }
+        
+        ...
+    }
+    
+Use view modifiers
+
+    struct MyView: View {
+        ...
+        @StateObject var myEasyViewModel: EasyViewModel = MyEasyViewModel()
+        ...
+        
+        var body: some View {
+            ...
+            someView()
+                // Adding a loader modifier
+                .loader(viewModel: myEasyViewModel)
+                // Adding an alert modifier
+                .alert(viewModel: myEasyViewModel)
+        }
+    }
 
 
