@@ -10,6 +10,8 @@ EasyMVVM is a package created to save time in the app development under the MVVM
 
 ## Usage
 
+Import EasyMVVM
+
     import EasyMVVM
     ...
 
