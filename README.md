@@ -74,6 +74,8 @@ Use view modifiers
                 // Adding an alert modifier
                 .alert(viewModel: myEasyViewModel)
         }
+        
+        ...
     }
 
 
